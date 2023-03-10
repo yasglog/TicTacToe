@@ -25,7 +25,7 @@ function initGame(){
 
     })
 
-    
+
     gameGrid=["","","","","","","","",""];
     newGameBtn.classList.remove("active");
 }
@@ -34,6 +34,8 @@ boxes.forEach((box,index)=>{
     box.addEventListener("click",()=>{
         handleclick(index);
     })
+
+    // box.addEventListener("click",handleclick)
 })
 
 function handleclick(index){
@@ -84,11 +86,12 @@ winningPositions.forEach((position)=>{
         gameInfo.innerText=`Winning Player - ${ans}`;
         newGameBtn.classList.add("active");
    }
+   else{
 
    let empty=0;
-   boxes.forEach((box)=>{
+   gameGrid.forEach((box)=>{
     if(box!=""){
-        empty=empty+1;
+        empty++;
     }
    })
 
@@ -96,6 +99,7 @@ winningPositions.forEach((position)=>{
     gameInfo.innerText=`Game tried`;
     newGameBtn.classList.add("active");
    }
+}
 }
 
 
